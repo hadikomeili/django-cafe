@@ -1,0 +1,33 @@
+.content {
+    background-position: center;
+    background-size: cover;
+    background-image: url("../images/about_us.jpg");
+    min-height: 75vh;
+    text-align: center;
+    padding-top: 1rem;
+    color: yellow;
+    width: 100%;
+    height: auto;
+}
+
+@media (min-width: 640px) {
+    .header-about {
+        font-size: 75px;
+    }
+
+    .text {
+        /*padding: 1rem;*/
+        font-size: x-large;
+        font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif
+    }
+}
+@media (max-width: 640px) {
+    .header-about {
+        font-size: 100px;
+    }
+
+    .text {
+        font-size: 30px;
+    }
+}
+

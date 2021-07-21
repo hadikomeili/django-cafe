@@ -1,0 +1,29 @@
+{% extends "landing/cafe_base.html" %}
+{% load static %}
+
+{% block title %}home{% endblock %}
+{% block css %}
+    <link href="{% static 'landing/css/home.css' %}" rel="stylesheet">
+{% endblock %}
+{% block script %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock %}
+{% block content %}
+<div class="container-fluid bgimg min-vh-75" id="main-body">
+    <div class="row pr-lg-5 mr-3 header-text">
+        <p style=" position: absolute; left: 15px ; padding-top: 3vh">Cafe 5</p>
+
+
+    </div>
+    <div class="row main-text">
+        <p style="position: absolute; left: 40px; color: white; ">Open from 9am to 11pm</p>
+
+    </div>
+
+
+</div>
+{% endblock %}
+

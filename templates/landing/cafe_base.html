@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static "landing/css/cafe_base.css" %}" rel="stylesheet">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    {% block css %}
+    {% endblock %}
+    {% block script %}
+    {% endblock %}
+</head>
+<body>
+<header>
+    <div class="container-fluid" id="myHeader" >
+        <div class="row">
+            <div class="col-4">
+                <h4>CAFE5</h4>
+            </div>
+{#            <div class="col-8" id="register-nav" style="float: right; text-align: right">#}
+{##}
+{##}
+{#                <a type="button" class="btn btn-primary btn" href="{% url '' %}"#}
+{#                   id="dashboard">Dashboard</a>#}
+{##}
+{#            </div>#}
+        </div>
+        <div class="row">
+            <div class="col">
+                <nav>
+                    <div id="myTopnav" class="topnav" >
+                        <a href="{% url 'landing:home' %}" id="home" class=""><strong>HOME</strong></a>
+                        <a href="{% url 'landing:about_us' %}" id="about_us" class=""><strong>ABOUT US</strong></a>
+
+                        <a href="{% url 'landing:add_new_message' %}" id="contact" class=""><strong>CONTACT US</strong></a>
+                        <a href="{% url 'landing:menu_items' %}" id="menu_list" class=""><strong>MENU</strong></a>
+                        <a href="{% url 'landing:all_orders' %}" id="orders" class=""><strong>ORDERS</strong></a>
+
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+</header>
+<div id="content">{% block content %}
+{% endblock %}</div>
+<div id="footer" ">
+    {% block footer %}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-sm-8">
+                    <p style=" padding: 1rem">Contact Us : <i class="fa fa-phone-square fa-lg"> </i> 09123456789 <i
+                            class="fa fa-envelope-square fa-lg"> </i> cafe@good_cafe.com <i
+                            class="fa fa-map-marker fa-lg"> </i> Tehran, Milad Tower, Cafe 5 </p>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <p style=" padding: 1rem">&copy; Copyright 2021 by group five(5)</p>
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}
+</div>
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        console.log("ready")
+        $(document).on("click", "a", function () {
+            $('.topnav a').removeClass('active');
+            $(this).addClass("active");
+        });
+        {#$('#myTopnav a').on('click','a', function () {#}
+        {#    console.log("in");#}
+        {#    $('#myTopnav').find('a.active').removeClass('active');#}
+        {#    $("#{{request.endpoint}}").addClass("active");#}
+        {#    $(this).addClass('active');#}
+        {# });#}
+    });
+
+</script>
+<script>
+$(document).ready(function () {
+$("#{{request.endpoint}}").addClass("active"); })
+</script>
+</body>
+</html>

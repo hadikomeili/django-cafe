@@ -1,0 +1,27 @@
+#main-body {
+  background-position: center;
+  background-size: cover;
+  background-image: url("../images/home.jpg");
+  width: 100%;
+  height: auto;
+  min-height: 75vh;
+}
+
+@media (min-width: 640px) {
+    .header-text {
+        font-size: 85px;
+    }
+
+    .main-text {
+        font-size: 20px;
+    }
+}
+@media (max-width: 640px) {
+    .header-text {
+        font-size: 100px;
+    }
+
+    .main-text {
+        font-size: 25px;
+    }
+}

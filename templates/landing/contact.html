@@ -1,0 +1,46 @@
+{% extends "landing/cafe_base.html" %}
+{% load static %}
+{% block title %}contact us{% endblock %}
+{% block css %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static "landing/contact.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+
+ <div class="container-fluid pt-1 text-center" style="min-height: 75vh;">
+        <div class="row text-left">
+
+            <div class="modal-content m-auto bg-light" id="user-modal" style="display: block">
+
+                <div class="wapper bg-withe select-shadow radious">
+
+
+            <center><h5>Enter the details to contact us</h5></center>
+            <hr>
+
+                <form class="form-group p-3" action="{}" method="post">
+
+                    <label for="first_name">First name</label><br>
+                    <input class="input-group" type="text" id="first_name" required placeholder="first name" name="first_name">
+                    <label for="last_name">Last name</label><br>
+                    <input class="input-group" type="text" id="last_name" required placeholder="last name" name="last_name">
+                    <label for="phone_number">Phone number</label><br>
+                    <input class="input-group" type="tel" id="phone_number" required placeholder="phone number" name="phone_number">
+                    <label for="birthdate">Birthday</label><br>
+                    <input class="input-group" type="date" id="birthdate" required placeholder="birthday" name="birthday">
+                    <label for="email">Email</label><br>
+                    <input class="input-group" type="email" id="email"  required placeholder="email" name="email">
+                    <label for="password">Password</label><br>
+                    <input class="input-group" type="text" id="password"  required placeholder="password" name="password">
+
+
+                    <input class="btn btn-success btn-block  mt-1" type="submit" id="submitaiton" value="register">
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

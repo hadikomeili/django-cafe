@@ -22,18 +22,18 @@ class Table(models.Model):
 
 class Category(models.Model):
     name_en = models.CharField(max_length=20, verbose_name=_('english category'), help_text=_('enter category'),
-                               null=True, blank=True, default=_('category'))
+                               null=True, blank=True)
     name_fa = models.CharField(max_length=20, verbose_name=_('farsi category'), help_text=_('enter category'),
-                               null=True, blank=True, default='نوع دسته غذا و نوشیدنی')
+                               null=True, blank=True)
 
     def __str__(self):
         return f"{self.id}# {self.name_en}"
 
 
 class MenuItem(models.Model):
-    name_en = models.CharField(max_length=30, verbose_name=_('menu item name in english'), default=_('menu'),
+    name_en = models.CharField(max_length=30, verbose_name=_('menu item name in english'),
                                help_text=_('enter menu item name'), null=False, blank=False)
-    name_fa = models.CharField(max_length=30, verbose_name=_('menu item name in farsi'), default='منو',
+    name_fa = models.CharField(max_length=30, verbose_name=_('menu item name in farsi'),
                                help_text=_('enter menu item name'), null=False, blank=False)
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name=_('menu item category'),
                                     help_text=_('define category'), null=False, blank=False)
@@ -41,7 +41,7 @@ class MenuItem(models.Model):
                                    blank=True, default=0)
     price = models.FloatField(verbose_name=_('price'), help_text=_('enter item price'), null=False, blank=False)
     image = models.FileField(verbose_name=_('item image'), help_text=_('upload image of item'), null=True, blank=True,
-                             upload_to='cafe5/menu_items/images/')
+                             upload_to='media/landing/menu_items/images/')
     create_timestamp = models.DateTimeField(verbose_name=_('time of adding item'),
                                             help_text=_('time of creation of item'),
                                             auto_now_add=True, null=False, blank=False)
@@ -53,8 +53,8 @@ class MenuItem(models.Model):
 
 
 class Order(models.Model):
-    order_number = models.CharField(max_length=5, verbose_name=_('order number'), help_text=_('enter order number'),
-                                    null=False, blank=False)
+    # order_number = models.CharField(max_length=5, verbose_name=_('order number'), help_text=_('enter order number'),
+    #                                 null=False, blank=False)
     status = models.CharField(max_length=30, verbose_name=_('status'), help_text=_('specify state of order'),
                               null=False, blank=False, default=_('new'),
                               choices=[('NW', _('new')), ('PR', _('preparing')), ('DV', _('delivered')),
@@ -69,7 +69,7 @@ class Order(models.Model):
                                            help_text=_('enter number of item that you want'), default=1)
 
     def __str__(self):
-        return f"{self.order_number}# : {self.status}"
+        return f"{self.id}# : {self.status}"
 
 
 class Receipt(models.Model):
@@ -96,6 +96,16 @@ class Receipt(models.Model):
         return f"_(final price): {self.final_price}"
 
 
+class Message(models.Model):
+    customer_name = models.CharField(max_length=50, verbose_name=_('customer name'),
+                                     help_text=_('enter your name'), null=False, blank=False)
+    email = models.CharField(max_length=50, verbose_name=_('email'), help_text=_('enter your email'),
+                             null=False, blank=False)
+    message_text = models.CharField(max_length=250, verbose_name=_('message text'),
+                                    help_text=_('enter your message'), null=False, blank=False)
+
+    def __str__(self):
+        return f"{self.customer_name}: {self.message_text}"
 
 
 

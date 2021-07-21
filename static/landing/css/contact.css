@@ -1,0 +1,12 @@
+
+@media (min-width: 640px) {
+    #user-modal {
+
+        max-width: 50vw;
+    }
+}
+@media (max-width: 640px) {
+    #user-modal {
+        max-width: 80vw;
+    }
+}

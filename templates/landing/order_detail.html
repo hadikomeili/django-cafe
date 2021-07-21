@@ -1,0 +1,47 @@
+{% extends "landing/cafe_base.html" %}
+{% block title %}all orders{% endblock %}
+{% block css %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+
+{% endblock %}
+
+
+{% block content %}
+    <div class="container-fluid text-center" style="min-height:75vh ">
+        <table class="table table-bordered text-center">
+
+            <tr>
+                <th>order number</th>
+                <th>order status</th>
+                <th>table number</th>
+                <th>table position</th>
+                <th>menu item name</th>
+                <th>menu item category</th>
+                <th>menu item price</th>
+                <th>menu item discount</th>
+
+            </tr>
+
+            <tr>
+                <td>{{ o_detail.id }}</td>
+                <td>{{ o_detail.status }}</td>
+                <td>{{ o_detail.table_id }}</td>
+                <td>{{ o_detail.table_id.cafe_space_position }}</td>
+                <td>{{ o_detail.menu_item_id.name_en }}</td>
+                <td>{{ o_detail.menu_item_id.category_id.name_en }}</td>
+                <td>{{ o_detail.menu_item_id.price }}</td>
+                <td>{{ o_detail.menu_item_id.discount }}</td>
+
+
+            </tr>
+
+
+        </table>
+        <button class="btn btn-block btn-outline-secondary"><a href="{% url 'landing:all_orders' %}">back to
+            all orders</a></button>
+    </div>
+
+
+{% endblock %}
