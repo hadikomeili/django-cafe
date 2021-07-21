@@ -1,5 +1,11 @@
 {% extends "landing/cafe_base.html" %}
-{% block title %}add order{% endblock %}
+{% load i18n %}
+{% block title %}
+
+    {% language "en" %}
+        {% translate 'add order' %}
+    {% endlanguage %}
+{% endblock %}
 {% block css %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,31 +18,33 @@
     <div class="container-fluid text-center" style="min-height:75vh ">
         <div class="row">
             <div class="col pt-lg-4 m-auto pt-2">
-                <h4>Record Order</h4>
+                <h4>{% language "en" %}
+                    {% translate 'Add Order' %}
+                {% endlanguage %}</h4>
             </div>
         </div>
         <div class="row p-lg-3 m-auto">
             <div class="col modal-content">
 
-            <form class="form-group" action="{% url 'landing:add_order' %}" method="post">
-                {% csrf_token %}
-                <table class="table table-bordered" >
-                    <thead class="text-white font-weight-bold" style="background-color: #48c964">
+                <form class="form-group" action="{% url 'landing:add_order' %}" method="post">
+                    {% csrf_token %}
+                    <table class="table table-bordered">
+                        <thead class="text-white font-weight-bold" style="background-color: #48c964">
 
-                    </thead>
-                    <tbody>
+                        </thead>
+                        <tbody>
                         <tr>
                             {{ form.as_p }}
                         </tr>
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
 
-                <input class="btn btn-block btn-success mt-2" type="submit" id="submission" value="submit order">
-            </form>
+                    <input class="btn btn-block btn-success mt-2" type="submit" id="submission" value="submit order">
+                </form>
+
+            </div>
 
         </div>
-
-    </div>
     </div>
 {% endblock %}

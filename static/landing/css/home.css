@@ -1,7 +1,7 @@
-#main-body {
+.bgimg {
   background-position: center;
   background-size: cover;
-  background-image: url("../images/home.jpg");
+  background: white url("../images/home.jpg") no-repeat;
   width: 100%;
   height: auto;
   min-height: 75vh;

@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,23 +24,28 @@
 </head>
 <body>
 <header>
-    <div class="container-fluid" id="myHeader" >
+    <div class="container-fluid" id="myHeader">
         <div class="row">
             <div class="col-4">
-                <h4>CAFE5</h4>
+                <h4>
+                    {% language "en" %}
+                        {% translate 'CAFE5' %}
+                    {% endlanguage %}
+
+                </h4>
             </div>
-{#            <div class="col-8" id="register-nav" style="float: right; text-align: right">#}
-{##}
-{##}
-{#                <a type="button" class="btn btn-primary btn" href="{% url '' %}"#}
-{#                   id="dashboard">Dashboard</a>#}
-{##}
-{#            </div>#}
+            {#            <div class="col-8" id="register-nav" style="float: right; text-align: right">#}
+            {##}
+            {##}
+            {#                <a type="button" class="btn btn-primary btn" href="{% url '' %}"#}
+            {#                   id="dashboard">Dashboard</a>#}
+            {##}
+            {#            </div>#}
         </div>
         <div class="row">
             <div class="col">
                 <nav>
-                    <div id="myTopnav" class="topnav" >
+                    <div id="myTopnav" class="topnav">
                         <a href="{% url 'landing:home' %}" id="home" class=""><strong>HOME</strong></a>
                         <a href="{% url 'landing:about_us' %}" id="about_us" class=""><strong>ABOUT US</strong></a>
 
@@ -56,22 +62,23 @@
 </header>
 <div id="content">{% block content %}
 {% endblock %}</div>
-<div id="footer" ">
-    {% block footer %}
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12 col-sm-8">
-                    <p style=" padding: 1rem">Contact Us : <i class="fa fa-phone-square fa-lg"> </i> 09123456789 <i
-                            class="fa fa-envelope-square fa-lg"> </i> cafe@good_cafe.com <i
-                            class="fa fa-map-marker fa-lg"> </i> Tehran, Milad Tower, Cafe 5 </p>
-                </div>
-                <div class="col-12 col-sm-4">
-                    <p style=" padding: 1rem">&copy; Copyright 2021 by group five(5)</p>
-                </div>
+<div id="footer"
+">
+{% block footer %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-sm-8">
+                <p style=" padding: 1rem">Contact Us : <i class="fa fa-phone-square fa-lg"> </i> 09123456789 <i
+                        class="fa fa-envelope-square fa-lg"> </i> cafe@good_cafe.com <i
+                        class="fa fa-map-marker fa-lg"> </i> Tehran, Milad Tower, Cafe 5 </p>
+            </div>
+            <div class="col-12 col-sm-4">
+                <p style=" padding: 1rem">&copy; Copyright 2021 by group five(5)</p>
             </div>
         </div>
+    </div>
 
-    {% endblock %}
+{% endblock %}
 </div>
 <script>
     function myFunction() {
@@ -100,8 +107,9 @@
 
 </script>
 <script>
-$(document).ready(function () {
-$("#{{request.endpoint}}").addClass("active"); })
+    $(document).ready(function () {
+        $("#{{request.endpoint}}").addClass("active");
+    })
 </script>
 </body>
 </html>

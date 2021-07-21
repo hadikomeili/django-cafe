@@ -1,5 +1,11 @@
 {% extends "landing/cafe_base.html" %}
-{% block title %}all orders{% endblock %}
+{% load i18n %}
+{% block title %}
+    {% language "en" %}
+        {% translate 'customer name' %}
+    {% endlanguage %}
+    all orders
+{% endblock %}
 {% block css %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,31 +17,66 @@
 {% block content %}
     <div class="container-fluid text-center" style="min-height:75vh ">
 
-            <table class="table table-bordered text-center">
-                <tr>
-                    <th>order id</th>
-                    <th>order status</th>
-                    <th>table number</th>
-                    <th>menu item name</th>
-                    <th>menu item number</th>
-                    <th>timestamp</th>
-                    <th>details</th>
+        <table class="table table-bordered text-center">
+            <tr>
+                <th>
+                    {% language "en" %}
+                        {% translate 'order id' %}
+                    {% endlanguage %}
 
+                </th>
+                <th>
+                    {% language "en" %}
+                        {% translate 'order status' %}
+                    {% endlanguage %}
+
+                </th>
+                <th>
+                    {% language "en" %}
+                        {% translate 'table number' %}
+                    {% endlanguage %}
+
+                </th>
+                <th>
+                    {% language "en" %}
+                        {% translate 'menu item name' %}
+                    {% endlanguage %}
+
+                </th>
+                <th>
+                    {% language "en" %}
+                        {% translate 'menu item number' %}
+                    {% endlanguage %}
+
+                </th>
+                <th>
+                    {% language "en" %}
+                        {% translate 'timestamp' %}
+                    {% endlanguage %}
+
+                </th>
+                <th>
+                    {% language "en" %}
+                        {% translate 'details' %}
+                    {% endlanguage %}
+
+                </th>
+
+
+            </tr>
+            {% for order in orders_list %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.status }}</td>
+                    <td>{{ order.table_id.table_number }}</td>
+                    <td>{{ order.menu_item_id.name_en }}</td>
+                    <td>{{ order.menu_item_number }}</td>
+                    <td>{{ order.time_stamp }}</td>
+                    <td><a href="{% url 'landing:order_details' order.id %}">show order details</a></td>
 
                 </tr>
-                {% for order in orders_list %}
-                    <tr>
-                        <td>{{ order.id }}</td>
-                        <td>{{ order.status }}</td>
-                        <td>{{ order.table_id.table_number }}</td>
-                        <td>{{ order.menu_item_id.name_en }}</td>
-                        <td>{{ order.menu_item_number }}</td>
-                        <td>{{ order.time_stamp }}</td>
-                        <td><a href="{% url 'landing:order_details' order.id %}">show order details</a></td>
-
-                    </tr>
-                {% endfor %}
-            </table>
+            {% endfor %}
+        </table>
 
 
     </div>

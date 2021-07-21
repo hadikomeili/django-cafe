@@ -1,6 +1,12 @@
 {% extends "landing/cafe_base.html" %}
+{% load i18n %}
 {% load static %}
-{% block title %}menu list{% endblock %}
+{% block title %}
+    {% language "en" %}
+        {% translate 'menu list' %}
+    {% endlanguage %}
+
+{% endblock %}
 {% block css %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{% static "landing/menu_list.css" %}" rel="stylesheet">
@@ -12,7 +18,12 @@
     <div class="container-fluid text-center" style="min-height:75vh ">
         <div class="row pt-3">
             <div class="col pt-lg-4 m-auto">
-                <h4>Main Menu</h4>
+                <h4>
+                    {% language "en" %}
+                        {% translate 'Main Menu' %}
+                    {% endlanguage %}
+
+                </h4>
             </div>
         </div>
         <div class="row p-lg-3 m-auto">
@@ -20,13 +31,33 @@
                 <table class="table table-bordered" id=customers>
                     <thead>
                     <tr>
-                        <th class="text-center">id</th>
-                        <th class="text-center">name</th>
-                        <th class="text-center">catagory</th>
-                        <th class="text-center">discount</th>
-{#                        <th class="text-center">delivering time period</th>#}
-{#                        <th class="text-center">estimated cooking time</th>#}
-                        <th class="text-center">price</th>
+                        <th class="text-center">
+                            {% language "en" %}
+                                {% translate 'id' %}
+                            {% endlanguage %}
+                        </th>
+                        <th class="text-center">
+                            {% language "en" %}
+                                {% translate ' name' %}
+                            {% endlanguage %}
+                        </th>
+                        <th class="text-center">
+                            {% language "en" %}
+                                {% translate 'catagory' %}
+                            {% endlanguage %}
+                        </th>
+                        <th class="text-center">
+                            {% language "en" %}
+                                {% translate 'discount' %}
+                            {% endlanguage %}
+                        </th>
+                        {#                        <th class="text-center">delivering time period</th>#}
+                        {#                        <th class="text-center">estimated cooking time</th>#}
+                        <th class="text-center">
+                            {% language "en" %}
+                                {% translate 'price' %}
+                            {% endlanguage %}
+                        </th>
                     </tr>
 
 
@@ -38,13 +69,19 @@
                             <td>{{ item.name_en }}</td>
                             <td>{{ item.category_id.name_en }}</td>
                             <td>{{ item.discount }}</td>
-{#                            <td>{{ row[4] }}</td>#}
+                            {#                            <td>{{ row[4] }}</td>#}
                             <td>{{ item.price }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
-            <a href="{% url 'landing:add_order' %}" style="position: relative"><button class="btn btn-success btn-block">Add Order</button></a>
+                <a href="{% url 'landing:add_order' %}" style="position: relative">
+                    <button class="btn btn-success btn-block">
+                        {% language "en" %}
+                            {% translate 'Add Order' %}
+                        {% endlanguage %}
+                    </button>
+                </a>
             </div>
         </div>
     </div>

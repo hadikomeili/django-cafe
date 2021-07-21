@@ -1,7 +1,13 @@
 {% extends "landing/cafe_base.html" %}
+{% load i18n %}
 {% load static %}
 
-{% block title %}home{% endblock %}
+{% block title %}
+    {% language "en" %}
+        {% translate 'home' %}
+    {% endlanguage %}
+
+{% endblock %}
 {% block css %}
     <link href="{% static 'landing/css/home.css' %}" rel="stylesheet">
 {% endblock %}
@@ -14,12 +20,22 @@
 {% block content %}
 <div class="container-fluid bgimg min-vh-75" id="main-body">
     <div class="row pr-lg-5 mr-3 header-text">
-        <p style=" position: absolute; left: 15px ; padding-top: 3vh">Cafe 5</p>
+        <p style=" position: absolute; left: 15px ; padding-top: 3vh">
+            {% language "en" %}
+        {% translate 'Cafe 5' %}
+    {% endlanguage %}
+
+        </p>
 
 
     </div>
     <div class="row main-text">
-        <p style="position: absolute; left: 40px; color: white; ">Open from 9am to 11pm</p>
+        <p style="position: absolute; left: 40px; color: white; ">
+            {% language "en" %}
+        {% translate 'Open from 9am to 11pm' %}
+    {% endlanguage %}
+
+        </p>
 
     </div>
 

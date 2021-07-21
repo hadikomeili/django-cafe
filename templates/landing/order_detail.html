@@ -1,5 +1,11 @@
 {% extends "landing/cafe_base.html" %}
-{% block title %}all orders{% endblock %}
+{% load i18n %}
+{% block title %}
+    {% language "en" %}
+        {% translate 'about' %}
+    {% endlanguage %}
+    all orders
+{% endblock %}
 {% block css %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,14 +19,46 @@
         <table class="table table-bordered text-center">
 
             <tr>
-                <th>order number</th>
-                <th>order status</th>
-                <th>table number</th>
-                <th>table position</th>
-                <th>menu item name</th>
-                <th>menu item category</th>
-                <th>menu item price</th>
-                <th>menu item discount</th>
+                <th>
+                    {% language "en" %}
+                        {% translate 'order number' %}
+                    {% endlanguage %}
+                </th>
+                <th>
+                    {% language "en" %}
+                        {% translate 'order status' %}
+                    {% endlanguage %}
+                </th>
+                <th>
+                    {% language "en" %}
+                        {% translate 'table number' %}
+                    {% endlanguage %}
+                </th>
+                <th>
+                    {% language "en" %}
+                        {% translate 'table position' %}
+                    {% endlanguage %}
+                </th>
+                <th>
+                    {% language "en" %}
+                        {% translate 'menu item name' %}
+                    {% endlanguage %}
+                </th>
+                <th>
+                    {% language "en" %}
+                        {% translate ' menu item category' %}
+                    {% endlanguage %}
+                </th>
+                <th>
+                    {% language "en" %}
+                        {% translate ' menu item price' %}
+                    {% endlanguage %}
+                </th>
+                <th>
+                    {% language "en" %}
+                        {% translate 'menu item discount' %}
+                    {% endlanguage %}
+                </th>
 
             </tr>
 
@@ -39,8 +77,11 @@
 
 
         </table>
-        <button class="btn btn-block btn-outline-secondary"><a href="{% url 'landing:all_orders' %}">back to
-            all orders</a></button>
+        <button class="btn btn-block btn-outline-secondary"><a href="{% url 'landing:all_orders' %}">
+            {% language "en" %}
+                        {% translate 'back to all orders' %}
+                    {% endlanguage %}
+            </a></button>
     </div>
 
 

@@ -1,5 +1,11 @@
 {% extends "landing/cafe_base.html" %}
-{% block title %}contact us{% endblock %}
+{% load i18n %}
+{% block title %}
+    {% language "en" %}
+        {% translate 'contact us' %}
+    {% endlanguage %}
+
+{% endblock %}
 {% block css %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,7 +18,9 @@
     <div class="container-fluid text-center" style="min-height:75vh ">
         <div class="row">
             <div class="col pt-lg-4 m-auto pt-2">
-                <h4>Contact Us</h4>
+                <h4>{% language "en" %}
+        {% translate 'contact us' %}
+    {% endlanguage %}</h4>
             </div>
         </div>
         <div class="row p-lg-3 m-auto">

@@ -69,7 +69,7 @@ class Order(models.Model):
                                            help_text=_('enter number of item that you want'), default=1)
 
     def __str__(self):
-        return f"{self.id}# : {self.status}"
+        return f"{self.id}# {self.table_id.table_number}: {self.status}"
 
 
 class Receipt(models.Model):

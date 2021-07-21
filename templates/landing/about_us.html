@@ -1,6 +1,11 @@
 {% extends "landing/cafe_base.html" %}
+{% load i18n %}
 {% load static %}
-{% block title %}about us{% endblock %}
+{% block title %}
+    {% language "en" %}
+        {% translate 'about us' %}
+    {% endlanguage %}
+{% endblock %}
 {% block css %}
 
     <link href="{% static "about_us.css" %}" rel="stylesheet">
@@ -8,19 +13,24 @@
 {% endblock %}
 {% block content %}
     <div class="container-fluid content">
-{#    <img class="img-fluid" src="{% static 'landing/images/about_us.jpg' %}">#}
+        {#    <img class="img-fluid" src="{% static 'landing/images/about_us.jpg' %}">#}
 
         <div class="row header-about">
             <h2>
-                About Us:
+                {% language "en" %}
+                    {% translate 'About Us:' %}
+                {% endlanguage %}
+
             </h2>
         </div>
         <div class="row">
             <div class="col-8" style="float: left">
 
                 <p class="text">
-                    We start in 2021 spring...
-                    This cafe is the best in the region.
+                    {% language "en" %}
+                        {% translate 'We start in 2021 spring... This cafe is the best in the region.' %}
+                    {% endlanguage %}
+
 
                 </p>
             </div>

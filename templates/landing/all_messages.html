@@ -1,5 +1,11 @@
 {% extends "landing/cafe_base.html" %}
-{% block title %}all messages{% endblock %}
+{% load i18n %}
+{% block title %}
+    {% language "en" %}
+        {% translate 'all messages' %}
+    {% endlanguage %}
+
+{% endblock %}
 {% block css %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,24 +17,33 @@
 {% block content %}
     <div class="container-fluid text-center" style="min-height:75vh ">
 
-            <table class="table table-bordered text-center">
+        <table class="table table-bordered text-center">
+            <tr>
+                <th>{% language "en" %}
+                    {% translate 'message id' %}
+                {% endlanguage %}</th>
+                <th>
+                    {% language "en" %}
+                        {% translate 'customer name' %}
+                    {% endlanguage %}
+                </th>
+                <th>{% language "en" %}
+                    {% translate 'message' %}
+                {% endlanguage %}
+                </th>
+
+
+            </tr>
+            {% for message in message_list %}
                 <tr>
-                    <th>message id</th>
-                    <th>customer name</th>
-                    <th>message</th>
+                    <td>{{ message.id }}</td>
+                    <td>{{ message.customer_name }}</td>
+                    <td>{{ message.message_text }}</td>
 
 
                 </tr>
-                {% for message in message_list %}
-                    <tr>
-                        <td>{{ message.id}}</td>
-                        <td>{{ message.customer_name }}</td>
-                        <td>{{ message.message_text }}</td>
-
-
-                    </tr>
-                {% endfor %}
-            </table>
+            {% endfor %}
+        </table>
 
 
     </div>
